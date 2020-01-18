@@ -1,0 +1,9 @@
+pickTeamEnv: enablers01-poc-g1ga
+targetTeamEnv: enablers01-nft-g1ga
+overrideKeysWith:
+  _resource_group: mefstg-nft-rg
+  -sharedEnvDR: shared01-nft-g1dr
+  -sharedEnvGA: shared01-nft-g1ga
+  -sharedEnvDS: shared01-nft-g1ds
+  -sharedEnvPS: shared01-nft-g1ps
+  -sharedEnvMS: shared01-nft-g1ms
