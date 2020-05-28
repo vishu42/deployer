@@ -11,9 +11,15 @@ import (
 )
 
 func main() {
-	secrets := yamlparser.Parse("./secrets.yaml")["secrets"].(map[interface{}]interface{})
+	if os.Args[1] == "-h" || os.Args[1] == "--help" {
+		fmt.Println("A simple command-line utility to env based secret generation")
+		fmt.Println("usage: deployer <PayloadPath>")
+		os.Exit(0)
+	}
+	payloadPath := os.Args[1]
 
-	payload := yamlparser.Parse("./deployerPayload.yaml")
+	secrets := yamlparser.Parse("./secrets.yaml")["secrets"].(map[interface{}]interface{})
+	payload := yamlparser.Parse(payloadPath)
 	targetTeamEnv := payload["targetTeamEnv"].(string)
 	if len(targetTeamEnv) == 0 {
 		log.Fatal("Empty targetTeamEnv")
